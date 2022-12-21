@@ -1,0 +1,31 @@
+CREATE TABLE BOOKS(
+    Id integer CONSTRAINT bookskey PRIMARY KEY,
+    Title varchar(40) NOT NULL,
+    Author varchar(40) NULL,
+    Quant integer,
+    Price integer,
+    Image varchar(50),
+	Descroption varchar(300)
+)
+
+CREATE TABLE USERS (
+    Id integer CONSTRAINT userskey PRIMARY KEY,
+    Name varchar(40) NOT NULL,
+    SurName varchar(40) NOT NULL,
+    Login varchar(20) NOT NULL,
+    Password varchar(50) NOT NULL,
+    Age integer,
+	GoldStatus boolean
+)
+
+INSERT INTO BOOKS VALUES
+(0, 'Idiot', 'Dostoevsky', 5, 65, '../image1.jpeg', 'Short story about...'),
+(1, 'Besy', 'Dostoevsky', 7, 95, '../image2.jpeg', 'Political novel about...'),
+(2, 'Anna Karenina', 'Tolstoy', 8, 31, '../image3.jpeg', 'Love story about...'),
+(3, 'Var and peace', 'Tolstoy', 9, 105, '../image4.jpeg', 'Dramatic stroy about...'),
+(4, 'Onegin', 'Pushkin', 8, 58, '../image5.jpeg', 'Love story about...')
+
+INSERT INTO USERS VALUES
+(0, 'Ivan', 'Petrov', 'Ivan123', 'Parol123', 35, TRUE),
+(1, 'Fedor', 'Ivanov', 'ONIX', 'Parol321', 16, FALSE),
+(2, 'Uriy', 'Lebedev', 'Yura1988', 'NoName123', 25, FALSE)
