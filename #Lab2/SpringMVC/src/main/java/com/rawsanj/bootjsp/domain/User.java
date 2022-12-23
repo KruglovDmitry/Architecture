@@ -2,13 +2,11 @@ package com.rawsanj.bootjsp.domain;
 
 import javax.persistence.*;
 
-//@Entity
-//@Table(name = "users")
+@Entity
 public class User {
-    //@Id
-    //@Column(name = "id")
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     //@Column(name = "name")
     private String Name;
@@ -32,11 +30,11 @@ public class User {
     }
 
     public void setId(int id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public int getId() {
-        return this.Id;
+        return this.id;
     }
 
     public void setName(String name) {

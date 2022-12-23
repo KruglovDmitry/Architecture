@@ -1,41 +1,35 @@
 package com.rawsanj.bootjsp.domain;
+
 import javax.persistence.*;
 
-//@Entity
-//@Table(name = "books")
+@Entity
+@Table(name = "books")
 public class Book {
-    //@Id
-    //@Column(name = "id")
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    //@Column(name = "title")
     private String Title;
 
-    //@Column(name = "author")
     private String Author;
 
-    //@Column(name = "quant")
     private int Quant;
 
-    //@Column(name = "price")
     private int Price;
 
-    //@Column(name = "image")
     private String Image;
 
-    //@Column(name = "description")
     private String Description;
 
     public Book() {
     }
 
-    public void setId(int id) {
-        this.Id = id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public int getId() {
-        return this.Id;
+    public Long getId() {
+        return this.id;
     }
 
     public void setTitle(String title) {
@@ -85,5 +79,6 @@ public class Book {
     public String getDescription() {
         return this.Description;
     }
+
 }
 

@@ -1,13 +1,17 @@
 package com.rawsanj.bootjsp.controllers;
 
+import com.rawsanj.bootjsp.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/users")
 public class UsersController {
+
+    @Autowired
+    private UserService _userService;
 
     @RequestMapping("/all")
     public String greeting(ModelMap model) {

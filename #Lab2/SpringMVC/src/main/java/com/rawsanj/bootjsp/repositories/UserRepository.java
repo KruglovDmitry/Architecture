@@ -1,17 +1,9 @@
 package com.rawsanj.bootjsp.repositories;
 
 import com.rawsanj.bootjsp.domain.User;
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public class UserRepository implements IUserRepository{
-
-    public UserRepository() {
-    }
-
-    public void addUser(User user) {
-    }
-
-    public List<User> getUsers() throws Exception {
-        throw new Exception();
-    }
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
 }

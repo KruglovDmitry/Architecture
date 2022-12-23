@@ -2,12 +2,14 @@ package com.rawsanj.bootjsp.services;
 
 import com.rawsanj.bootjsp.domain.User;
 import com.rawsanj.bootjsp.repositories.UserRepository;
-import javax.ejb.EJB;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.List;
 
+@Service
 public class UserService implements  IUserService {
 
-
+    @Autowired
     private UserRepository _userRepository;
 
     public UserService() {
@@ -15,11 +17,11 @@ public class UserService implements  IUserService {
 
     @Override
     public void addUser(User user) {
-        _userRepository.addUser(user);
+        _userRepository.save(user);
     }
 
     @Override
-    public List<User> getUsers() throws Exception {
-        return _userRepository.getUsers();
+    public List<User> getUsers() {
+        return _userRepository.findAll();
     }
 }
