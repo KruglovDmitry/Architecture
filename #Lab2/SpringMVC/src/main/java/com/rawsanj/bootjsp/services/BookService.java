@@ -10,18 +10,18 @@ import java.util.List;
 public class BookService implements  IBookService{
 
     @Autowired
-    private BookRepository _bookRepository;
+    private BookRepository bookRepository;
 
     public BookService() {
     }
 
     @Override
     public void addBook(Book book) {
-        _bookRepository.save(book);
+        bookRepository.AddBook(book);
     }
 
     @Override
     public List<Book> getBooks() {
-        return _bookRepository.findAll();
+        return bookRepository.GetBooks();
     }
 }

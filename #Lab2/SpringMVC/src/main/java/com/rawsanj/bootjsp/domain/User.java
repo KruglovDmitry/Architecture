@@ -3,27 +3,28 @@ package com.rawsanj.bootjsp.domain;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    //@Column(name = "name")
+    @Column(name = "name")
     private String Name;
 
-    //@Column(name = "surname")
+    @Column(name = "surname")
     private String Surname;
 
-    //@Column(name = "login")
+    @Column(name = "login")
     private String Login;
 
-    //@Column(name = "password")
+    @Column(name = "password")
     private String Password;
 
-    //@Column(name = "age")
+    @Column(name = "age")
     private int Age;
 
-    //@Column(name = "goldstatus")
+    @Column(name = "goldstatus")
     private Boolean Goldstatus;
 
     public User() {

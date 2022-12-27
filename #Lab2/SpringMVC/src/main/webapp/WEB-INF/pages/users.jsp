@@ -7,6 +7,6 @@
 	<title>Hello, here is the user list -</title>
 </head>
 	<body>
-		<h3>${userList}.</h3>
+		${userList}
 	</body>
 </html>

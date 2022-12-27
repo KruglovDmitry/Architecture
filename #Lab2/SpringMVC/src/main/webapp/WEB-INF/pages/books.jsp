@@ -7,6 +7,6 @@
 	<title>Hello, here is the book list -</title>
 </head>
 	 <body>
-	     <h3>${bookList}.</h3>
+	     ${bookList}
 	 </body>
 </html>
