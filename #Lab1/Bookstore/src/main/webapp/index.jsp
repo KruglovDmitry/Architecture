@@ -8,7 +8,7 @@
 <h1><%= "Hello User!" %>
 </h1>
 <br/>
-<a href="user-servlet">Hello Servlet</a>
+<a href="user-servlet">User Servlet</a>
 <a href="bookstore-servlet">Bookstore Servlet</a>
 </body>
 </html>

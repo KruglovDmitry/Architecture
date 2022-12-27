@@ -19,13 +19,13 @@ CREATE TABLE USERS (
 )
 
 INSERT INTO BOOKS VALUES
-(0, 'Idiot', 'Dostoevsky', 5, 65, '../image1.jpeg', 'Short story about...'),
-(1, 'Besy', 'Dostoevsky', 7, 95, '../image2.jpeg', 'Political novel about...'),
-(2, 'Anna Karenina', 'Tolstoy', 8, 31, '../image3.jpeg', 'Love story about...'),
-(3, 'Var and peace', 'Tolstoy', 9, 105, '../image4.jpeg', 'Dramatic stroy about...'),
-(4, 'Onegin', 'Pushkin', 8, 58, '../image5.jpeg', 'Love story about...')
+(0, 'Dostoevsky', 'Short story about...', '../image1.jpeg', 65, 5, 'Idiot'),
+(1, 'Dostoevsky', 'Political novel about...', '../image2.jpeg', 95, 7, 'Besy'),
+(2, 'Tolstoy', 'Love story about...', '../image3.jpeg', 31, 8, 'Anna Karenina'),
+(3, 'Tolstoy', 'Dramatic stroy about...', '../image4.jpeg', 105, 9, 'Var and peace'),
+(4, 'Pushkin', 'Love story about...', '../image5.jpeg', 58, 8, 'Onegin')
 
 INSERT INTO USERS VALUES
-(0, 'Ivan', 'Petrov', 'Ivan123', 'Parol123', 35, TRUE),
-(1, 'Fedor', 'Ivanov', 'ONIX', 'Parol321', 16, FALSE),
-(2, 'Uriy', 'Lebedev', 'Yura1988', 'NoName123', 25, FALSE)
+(0, 35, TRUE, 'Ivan123', 'Ivan', 'Parol123','Petrov'),
+(1, 16, FALSE, 'ONIX', 'Fedor', 'Parol321', 'Ivanov'),
+(2, 25, FALSE, 'Yura1988', 'Uriy', 'NoName123', 'Lebedev')

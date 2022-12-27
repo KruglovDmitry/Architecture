@@ -4,34 +4,34 @@ import java.io.*;
 import java.util.List;
 
 import com.example.domain.Book;
-import com.example.service.IBookService;
+import com.example.repository.BookRepository;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-import javax.ejb.EJB;
+import jakarta.ejb.EJB;
 
 @WebServlet(name = "bookstoreServlet", value = "/bookstore-servlet")
 public class BooksServlet extends HttpServlet {
 
     @EJB
-    private IBookService _bookService;
-    private String _bookList;
+    private BookRepository bookRepository;
+    private String bookList;
 
     public void init()
     {
-        _bookList = "<ul>";
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        List<Book> books =  _bookService.getBooks();
+        List<Book> books =  bookRepository.getBooks();
+        bookList = "<ul>";
         for (Book book : books) {
-            _bookList += "<li>" + book.getTitle() + " " + book.getAuthor() + "</li>";
+            bookList += "<li>" + book.getTitle() + " " + book.getAuthor() + "</li>";
         }
-        _bookList += "</ul>";
+        bookList += "</ul>";
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println("<html><body>" + _bookList + "</body></html>");
+        out.println("<html><body><h3>Book list:</h3>" + bookList + "</body></html>");
     }
 
     public void destroy() {

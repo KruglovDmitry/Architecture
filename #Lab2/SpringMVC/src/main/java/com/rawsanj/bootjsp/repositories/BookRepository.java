@@ -34,5 +34,16 @@ public class BookRepository implements IBookRepository {
 
     @Override
     public void AddBook(Book book) {
+        Session session = null;
+        try {
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            Integer id = (Integer) session.save(book);
+            System.out.println("Successfully create book with id - " + id);
+            session.getTransaction().commit();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

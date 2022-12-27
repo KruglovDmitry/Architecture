@@ -1,88 +1,89 @@
 package com.example.domain;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
-@Entity
+@Entity(name="book")
 @Table(name = "books")
 public class Book {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private int id;
 
     @Column(name = "title")
-    private String Title;
+    private String title;
 
     @Column(name = "author")
-    private String Author;
+    private String author;
 
     @Column(name = "quant")
-    private int Quant;
+    private int quant;
 
     @Column(name = "price")
-    private int Price;
+    private int price;
 
     @Column(name = "image")
-    private String Image;
+    private String image;
 
     @Column(name = "description")
-    private String Description;
+    private String description;
 
     public Book() {
     }
 
-    public void setId(int id) {
-        this.Id = id;
-    }
-
-    public int getId() {
-        return this.Id;
-    }
-
-    public void setTitle(String title) {
-        this.Title = title;
+    public Book(String title, String author, int quant, int price, String image, String description) {
+        this.title = title;
+        this.author = author;
+        this.quant = quant;
+        this.price = price;
+        this.image = image;
+        this.description = description;
     }
 
     public String getTitle() {
-        return this.Title;
+        return title;
     }
 
-    public void setAuthor(String author) {
-        this.Author = author;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getAuthor() {
-        return this.Author;
+        return author;
     }
 
-    public void setQuant(int quant) {
-        this.Quant = quant;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public int getQuant() {
-        return this.Quant;
+        return quant;
     }
 
-    public void setPrice(int price) {
-        this.Price = price;
+    public void setQuant(int quant) {
+        this.quant = quant;
     }
 
     public int getPrice() {
-        return this.Price;
+        return price;
     }
 
-    public void setImage(String image) {
-        this.Image = image;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public String getImage() {
-        return this.Image;
+        return image;
     }
 
-    public void setDescription(String description) {
-        this.Description = description;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getDescription() {
-        return this.Description;
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

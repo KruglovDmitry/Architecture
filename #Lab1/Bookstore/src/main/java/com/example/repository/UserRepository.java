@@ -1,16 +1,15 @@
 package com.example.repository;
 
-import com.example.domain.Book;
 import com.example.domain.User;
 import java.util.List;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.ejb.Stateless;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 @Stateless
-public class UserRepository implements IUserRepository{
+public class UserRepository {
 
-    @PersistenceContext(unitName = "default")
+    @PersistenceContext
     private EntityManager entityManager;
 
     public UserRepository() {
@@ -21,6 +20,6 @@ public class UserRepository implements IUserRepository{
     }
 
     public List<User> getUsers() {
-        return entityManager.createQuery("SELECT * FROM users").getResultList();
+        return entityManager.createQuery("SELECT u FROM user u").getResultList();
     }
 }

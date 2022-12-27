@@ -4,34 +4,34 @@ import java.io.*;
 import java.util.List;
 
 import com.example.domain.User;
-import com.example.service.IUserService;
+import com.example.repository.UserRepository;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-import javax.ejb.EJB;
+import jakarta.ejb.EJB;
 
 @WebServlet(name = "userServlet", value = "/user-servlet")
 public class UsersServlet extends HttpServlet {
 
     @EJB
-    private IUserService _userService;
-    private String _userList;
+    private UserRepository userRepository;
+    private String userList;
 
     public void init()
     {
-        _userList = "<ul>";
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        List<User> users =  _userService.getUsers();
+        List<User> users =  userRepository.getUsers();
+        userList = "<ul>";
         for (User user : users) {
-            _userList += "<li>" + user.getName() + " " + user.getSurname() + "</li>";
+            userList += "<li>" + user.getName() + " " + user.getSurname() + "</li>";
         }
-        _userList += "</ul>";
+        userList += "</ul>";
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println("<html><body>" + _userList + "</body></html>");
+        out.println("<html><body><h3>User list:</h3>" + userList + "</body></html>");
     }
 
     public void destroy() {

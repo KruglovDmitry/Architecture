@@ -33,5 +33,16 @@ public class UserRepository implements IUserRepository {
 
     @Override
     public void AddUser(User user) {
+        Session session = null;
+        try {
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            Integer id = (Integer) session.save(user);
+            System.out.println("Successfully create user with id - " + id);
+            session.getTransaction().commit();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
