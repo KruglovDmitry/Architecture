@@ -10,16 +10,12 @@ import jakarta.servlet.annotation.*;
 
 import jakarta.ejb.EJB;
 
-@WebServlet(name = "bookstoreServlet", value = "/bookstore-servlet")
+@WebServlet(name = "bookServlet", value = "/book-servlet")
 public class BooksServlet extends HttpServlet {
 
     @EJB
     private BookRepository bookRepository;
     private String bookList;
-
-    public void init()
-    {
-    }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -32,8 +28,5 @@ public class BooksServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         out.println("<html><body><h3>Book list:</h3>" + bookList + "</body></html>");
-    }
-
-    public void destroy() {
     }
 }

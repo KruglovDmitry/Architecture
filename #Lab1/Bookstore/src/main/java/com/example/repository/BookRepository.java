@@ -15,11 +15,15 @@ public class BookRepository {
     public BookRepository() {
     }
 
+    public List<Book> getBooks() {
+        return entityManager.createQuery("SELECT b FROM book b").getResultList();
+    }
+
     public void addBook(Book book) {
         entityManager.persist(book);
     }
 
-    public List<Book> getBooks() {
-        return entityManager.createQuery("SELECT b FROM book b").getResultList();
+    public void deleteBook(int id) {
+        entityManager.remove(id);
     }
 }

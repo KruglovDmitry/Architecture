@@ -17,10 +17,6 @@ public class UsersServlet extends HttpServlet {
     private UserRepository userRepository;
     private String userList;
 
-    public void init()
-    {
-    }
-
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         List<User> users =  userRepository.getUsers();
@@ -32,9 +28,6 @@ public class UsersServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         out.println("<html><body><h3>User list:</h3>" + userList + "</body></html>");
-    }
-
-    public void destroy() {
     }
 }
 

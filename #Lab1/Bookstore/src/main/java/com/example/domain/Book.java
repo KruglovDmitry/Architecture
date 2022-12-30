@@ -39,6 +39,14 @@ public class Book {
         this.description = description;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setID(int id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }

@@ -15,11 +15,15 @@ public class UserRepository {
     public UserRepository() {
     }
 
+    public List<User> getUsers() {
+        return entityManager.createQuery("SELECT u FROM user u").getResultList();
+    }
+
     public void addUser(User user) {
         entityManager.persist(user);
     }
 
-    public List<User> getUsers() {
-        return entityManager.createQuery("SELECT u FROM user u").getResultList();
+    public void deleteUser(int id) {
+        entityManager.remove(id);
     }
 }
