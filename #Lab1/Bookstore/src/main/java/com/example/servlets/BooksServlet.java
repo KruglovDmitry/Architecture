@@ -2,13 +2,11 @@ package com.example.servlets;
 
 import java.io.*;
 import java.util.List;
-
 import com.example.domain.Book;
 import com.example.repository.BookRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-
 import jakarta.ejb.EJB;
 
 @WebServlet(name = "bookServlet", value = "/book-servlet")

@@ -2,12 +2,10 @@ package com.example.servlets;
 
 import java.io.*;
 import java.util.List;
-
 import com.example.domain.User;
 import com.example.repository.UserRepository;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-
 import jakarta.ejb.EJB;
 
 @WebServlet(name = "userServlet", value = "/user-servlet")

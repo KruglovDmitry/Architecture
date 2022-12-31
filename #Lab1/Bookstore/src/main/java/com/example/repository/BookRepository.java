@@ -24,6 +24,7 @@ public class BookRepository {
     }
 
     public void deleteBook(int id) {
-        entityManager.remove(id);
+        Book book = entityManager.find(Book.class, id);
+        entityManager.remove(book);
     }
 }

@@ -1,9 +1,11 @@
 package com.example.domain;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity(name="user")
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
