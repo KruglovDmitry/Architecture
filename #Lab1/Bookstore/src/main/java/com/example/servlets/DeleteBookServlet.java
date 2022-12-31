@@ -19,23 +19,9 @@ public class DeleteBookServlet extends HttpServlet {
 
     @EJB
     private BookRepository bookRepository;
-    private String bookList;
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        List<Book> books =  bookRepository.getBooks();
-        bookList = "<ul>";
-        for (Book book : books) {
-            bookList += "<li><a href=\"/delete-book-servlet/" + book.getId() + "\">" + book.getTitle() + " " + book.getAuthor() + "</li>";
-        }
-        bookList += "</ul>";
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<html><body><h3>Choose book to delete:</h3>" + bookList + "</body></html>");
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         bookRepository.deleteBook(id);
         response.sendRedirect(request.getContextPath() + "/index");

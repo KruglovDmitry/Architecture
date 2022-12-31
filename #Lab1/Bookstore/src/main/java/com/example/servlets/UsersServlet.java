@@ -22,12 +22,13 @@ public class UsersServlet extends HttpServlet {
         List<User> users =  userRepository.getUsers();
         userList = "<ul>";
         for (User user : users) {
-            userList += "<li>" + user.getName() + " " + user.getSurname() + "</li>";
+            userList += "<li><a href=\"delete-user-servlet?id=" + user.getId() + "\">" +
+                    user.getName() + " " + user.getSurname() + "</li>";
         }
         userList += "</ul>";
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println("<html><body><h3>User list:</h3>" + userList + "</body></html>");
+        out.println("<html><body><h4>List of all users</h4><span>click on user to delete</span>" + userList + "</body></html>");
     }
 }
 

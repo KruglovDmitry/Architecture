@@ -19,21 +19,6 @@ public class DeleteUserServlet extends HttpServlet {
 
     @EJB
     private UserRepository userRepository;
-    private String userList;
-
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        List<User> users =  userRepository.getUsers();
-        userList = "<ul>";
-        for (User user : users) {
-            userList += "<li><a href=\"/delete-user-servlet/" + user.getId() + "\">" + user.getName() + " " + user.getSurname() + "</li>";
-        }
-        userList += "</ul>";
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<html><body><h3>Choose user to delete:</h3>" + userList + "</body></html>");
-    }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));

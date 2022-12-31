@@ -26,11 +26,6 @@
             <td><a href="add-user-servlet">Add</a></td>
             <td><a href="add-book-servlet">Add</a></td>
         </tr>
-        <tr>
-            <td>3</td>
-            <td><a href="delete-user-servlet">Delete</a></td>
-            <td><a href="delete-book-servlet">Delete</a></td>
-        </tr>
     </tbody>
 </table>
 </body>
