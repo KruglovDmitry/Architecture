@@ -20,7 +20,7 @@ public class BookRepository {
     }
 
     public void addBook(Book book) {
-        entityManager.persist(book);
+        entityManager.merge(book);
     }
 
     public void deleteBook(int id) {

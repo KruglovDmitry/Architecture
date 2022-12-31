@@ -38,6 +38,6 @@ public class AddBookServlet extends HttpServlet {
 
         Book book = new Book(title, author, quant, price, "", description);
         bookRepository.addBook(book);
-        response.sendRedirect(request.getContextPath() + "/index");
+        response.sendRedirect(request.getContextPath() + "/index.jsp");
     }
 }

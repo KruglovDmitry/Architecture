@@ -20,7 +20,7 @@ public class UserRepository {
     }
 
     public void addUser(User user) {
-        entityManager.persist(user);
+        entityManager.merge(user);
     }
 
     public void deleteUser(int id) {

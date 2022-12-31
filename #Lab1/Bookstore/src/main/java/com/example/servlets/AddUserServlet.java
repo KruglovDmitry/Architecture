@@ -38,6 +38,6 @@ public class AddUserServlet extends HttpServlet {
 
         User user = new User(name, surname, login, password, age, false);
         userRepository.addUser(user);
-        response.sendRedirect(request.getContextPath() + "/index");
+        response.sendRedirect(request.getContextPath() + "/index.jsp");
     }
 }
