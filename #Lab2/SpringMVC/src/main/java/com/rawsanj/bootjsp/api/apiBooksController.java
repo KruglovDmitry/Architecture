@@ -16,27 +16,47 @@ public class apiBooksController {
 
     public apiBooksController() {}
 
-    @RequestMapping(path = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(
+            path = "/all",
+            method = RequestMethod.GET,
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+            consumes = MediaType.ALL_VALUE)
     public List<Book> getAll() {
         return bookService.getAll();
     }
 
-    @RequestMapping(path = "/get", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(
+            path = "/get",
+            method = RequestMethod.GET,
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+            consumes = MediaType.ALL_VALUE)
     public Book get(@RequestParam int id) {
         return bookService.get(id);
     }
 
-    @RequestMapping(path = "/create", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(
+            path = "/create",
+            method = RequestMethod.PUT,
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+            consumes = MediaType.ALL_VALUE)
     public void create(Book book) {
         bookService.add(book);
     }
 
-    @RequestMapping(path = "/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(
+            path = "/update",
+            method = RequestMethod.POST,
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+            consumes = MediaType.ALL_VALUE)
     public void update(Book book) {
         bookService.update(book);
     }
 
-    @RequestMapping(path = "/delete", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(
+            path = "/delete",
+            method = RequestMethod.DELETE,
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+            consumes = MediaType.ALL_VALUE)
     public void delete(@RequestParam int id) {
         bookService.delete(id);
     }

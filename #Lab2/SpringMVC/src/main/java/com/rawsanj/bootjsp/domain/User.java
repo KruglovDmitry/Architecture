@@ -1,9 +1,11 @@
 package com.rawsanj.bootjsp.domain;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "users")
+@XmlRootElement
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
