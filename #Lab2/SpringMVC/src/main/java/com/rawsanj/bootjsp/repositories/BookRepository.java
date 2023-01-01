@@ -17,7 +17,7 @@ public class BookRepository implements IBookRepository {
     }
 
     @Override
-    public List<Book> GetBooks() {
+    public List<Book> getAll() {
         Session session = null;
         try {
             session = sessionFactory.openSession();
@@ -33,7 +33,12 @@ public class BookRepository implements IBookRepository {
     }
 
     @Override
-    public void AddBook(Book book) {
+    public Book get(int id) {
+        return null;
+    }
+
+    @Override
+    public void add(Book book) {
         Session session = null;
         try {
             session = sessionFactory.openSession();
@@ -45,5 +50,15 @@ public class BookRepository implements IBookRepository {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void update(Book book) {
+
+    }
+
+    @Override
+    public void delete(int id) {
+
     }
 }

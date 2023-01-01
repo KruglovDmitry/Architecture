@@ -4,8 +4,10 @@ import com.rawsanj.bootjsp.domain.User;
 import java.util.List;
 
 public interface IUserService {
+    List<User> getAll();
+    void add(User user);
 
-    void addUser(User user);
+    void update(User user);
 
-    List<User> getUsers() throws Exception;
+    void delete(int id);
 }

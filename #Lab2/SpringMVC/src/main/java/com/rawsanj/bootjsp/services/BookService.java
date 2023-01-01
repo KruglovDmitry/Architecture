@@ -16,12 +16,24 @@ public class BookService implements  IBookService{
     }
 
     @Override
-    public void addBook(Book book) {
-        bookRepository.AddBook(book);
+    public List<Book> getAll() {
+        return bookRepository.getAll();
     }
 
     @Override
-    public List<Book> getBooks() {
-        return bookRepository.GetBooks();
+    public void add(Book book) {
+        bookRepository.add(book);
+    }
+
+    @Override
+    public void update(Book book) {
+
+        bookRepository.update(book);
+    }
+
+    @Override
+    public void delete(int id) {
+
+        bookRepository.delete(id);
     }
 }

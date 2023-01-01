@@ -4,7 +4,13 @@ import com.rawsanj.bootjsp.domain.User;
 import java.util.List;
 
 public interface IUserRepository {
-    public List<User> GetUsers();
+    List<User> getAll();
 
-    public void AddUser(User user);
+    User get(int id);
+
+    void add(User user);
+
+    void update(User user);
+
+    void delete(int id);
 }

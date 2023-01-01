@@ -16,12 +16,23 @@ public class UserService implements  IUserService {
     }
 
     @Override
-    public void addUser(User user) {
-        userRepository.AddUser(user);
+    public List<User> getAll() {
+        return userRepository.getAll();
     }
 
     @Override
-    public List<User> getUsers() {
-        return userRepository.GetUsers();
+    public void add(User user) {
+
+        userRepository.add(user);
+    }
+
+    @Override
+    public void update(User user) {
+        userRepository.update(user);
+    }
+
+    @Override
+    public void delete(int id) {
+        userRepository.delete(id);
     }
 }

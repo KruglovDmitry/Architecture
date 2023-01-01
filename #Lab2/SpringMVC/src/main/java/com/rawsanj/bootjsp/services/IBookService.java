@@ -5,7 +5,11 @@ import java.util.List;
 
 public interface IBookService {
 
-    void addBook(Book book);
+    List<Book> getAll();
 
-    List<Book> getBooks() throws Exception;
+    void add(Book book);
+
+    void update (Book book);
+
+    void delete(int id);
 }

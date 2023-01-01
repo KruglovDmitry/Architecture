@@ -16,7 +16,7 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
-    public List<User> GetUsers() {
+    public List<User> getAll() {
         Session session = null;
         try {
             session = sessionFactory.openSession();
@@ -32,7 +32,12 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
-    public void AddUser(User user) {
+    public User get(int id) {
+        return null;
+    }
+
+    @Override
+    public void add(User user) {
         Session session = null;
         try {
             session = sessionFactory.openSession();
@@ -44,5 +49,15 @@ public class UserRepository implements IUserRepository {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void update(User user) {
+
+    }
+
+    @Override
+    public void delete(int id) {
+
     }
 }
