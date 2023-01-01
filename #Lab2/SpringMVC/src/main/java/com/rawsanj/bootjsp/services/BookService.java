@@ -21,6 +21,11 @@ public class BookService implements  IBookService{
     }
 
     @Override
+    public Book get(int id) {
+        return bookRepository.get(id);
+    }
+
+    @Override
     public void add(Book book) {
         bookRepository.add(book);
     }

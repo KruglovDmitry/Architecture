@@ -20,8 +20,8 @@
 							<span>${user.surname}</span>
 						</div>
 						<div class="col-sm-5">
-							<a class="btn btn-sm btn-outline-warning" href="/update?id=${user.id}">Редактировать</a>
-							<a class="btn btn-sm btn-outline-danger" href="/delete?id=${user.id}">Удалить</a>
+							<a class="btn btn-sm btn-outline-warning" href="update?id=${user.id}">Редактировать</a>
+							<a class="btn btn-sm btn-outline-danger" href="delete?id=${user.id}">Удалить</a>
 						</div>
 					</div>
 				</li>

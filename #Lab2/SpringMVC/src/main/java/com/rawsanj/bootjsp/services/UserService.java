@@ -21,6 +21,11 @@ public class UserService implements  IUserService {
     }
 
     @Override
+    public User get(int id) {
+        return userRepository.get(id);
+    }
+
+    @Override
     public void add(User user) {
 
         userRepository.add(user);

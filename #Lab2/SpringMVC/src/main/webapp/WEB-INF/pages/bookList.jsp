@@ -20,8 +20,8 @@
 					 		<span>${book.author}</span>
 						 </div>
 					 	<div class="col-sm-5">
-					 		<a class="btn btn-sm btn-outline-warning" href="/update?id=${book.id}">Редактировать</a>
-					 		<a class="btn btn-sm btn-outline-danger" href="/delete?id=${book.id}">Удалить</a>
+					 		<a class="btn btn-sm btn-outline-warning" href="update?id=${book.id}">Редактировать</a>
+					 		<a class="btn btn-sm btn-outline-danger" href="delete?id=${book.id}">Удалить</a>
 					 	</div>
 				 	</div>
 				 </li>

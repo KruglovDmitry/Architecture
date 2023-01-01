@@ -7,6 +7,8 @@ public interface IBookService {
 
     List<Book> getAll();
 
+    Book get(int id);
+
     void add(Book book);
 
     void update (Book book);

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -34,8 +35,9 @@ public class BooksController {
     }
 
     @RequestMapping("/update")
-    public String updateBook(ModelMap model) {
-
+    public String updateBook(@RequestParam int id, ModelMap model) {
+        Book book = bookService.get(id);
+        model.put("book", book);
         return "editBook";
     }
 
@@ -47,11 +49,12 @@ public class BooksController {
         else {
             bookService.update(book);
         }
-        return "redirect:/";
+        return "redirect:/home/index";
     }
 
     @RequestMapping("/delete")
-    public String deleteBook(ModelMap model) {
-        return "redirect:/";
+    public String deleteBook(@RequestParam int id) {
+        bookService.delete(id);
+        return "redirect:/home/index";
     }
 }

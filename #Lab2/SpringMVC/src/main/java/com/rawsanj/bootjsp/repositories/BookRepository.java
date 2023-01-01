@@ -34,6 +34,17 @@ public class BookRepository implements IBookRepository {
 
     @Override
     public Book get(int id) {
+        Session session = null;
+        try {
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            Book book = (Book) session.get(Book.class, id);
+            session.getTransaction().commit();
+            return book;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -54,11 +65,32 @@ public class BookRepository implements IBookRepository {
 
     @Override
     public void update(Book book) {
-
+        Session session = null;
+        try {
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.update(book);
+            System.out.println("Successfully update book with id - " + book.getId());
+            session.getTransaction().commit();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void delete(int id) {
-
+        Session session = null;
+        try {
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            Book book = (Book) session.get(Book.class, id);
+            session.delete(book);
+            System.out.println("Successfully delete book with id - " + id);
+            session.getTransaction().commit();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

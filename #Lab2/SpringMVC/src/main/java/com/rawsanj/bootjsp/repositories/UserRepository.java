@@ -1,5 +1,6 @@
 package com.rawsanj.bootjsp.repositories;
 
+import com.rawsanj.bootjsp.domain.Book;
 import com.rawsanj.bootjsp.domain.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -33,6 +34,17 @@ public class UserRepository implements IUserRepository {
 
     @Override
     public User get(int id) {
+        Session session = null;
+        try {
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            User user = (User) session.get(User.class, id);
+            session.getTransaction().commit();
+            return user;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -53,11 +65,32 @@ public class UserRepository implements IUserRepository {
 
     @Override
     public void update(User user) {
-
+        Session session = null;
+        try {
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.update(user);
+            System.out.println("Successfully update user with id - " + user.getId());
+            session.getTransaction().commit();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void delete(int id) {
-
+        Session session = null;
+        try {
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            User user = (User) session.get(User.class, id);
+            session.delete(user);
+            System.out.println("Successfully delete user with id - " + id);
+            session.getTransaction().commit();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
