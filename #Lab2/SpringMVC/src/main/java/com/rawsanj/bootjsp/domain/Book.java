@@ -1,12 +1,13 @@
 package com.rawsanj.bootjsp.domain;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "books")
-@XmlRootElement
-public class Book {
+@JacksonXmlRootElement(localName = "Book")
+public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

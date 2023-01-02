@@ -1,6 +1,7 @@
 package com.rawsanj.bootjsp.api;
 
 import com.rawsanj.bootjsp.domain.Book;
+import com.rawsanj.bootjsp.domain.Books;
 import com.rawsanj.bootjsp.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -21,9 +22,7 @@ public class apiBooksController {
             method = RequestMethod.GET,
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             consumes = MediaType.ALL_VALUE)
-    public List<Book> getAll() {
-        return bookService.getAll();
-    }
+    public List<Book> getAll() { return bookService.getAll(); }
 
     @RequestMapping(
             path = "/get",
