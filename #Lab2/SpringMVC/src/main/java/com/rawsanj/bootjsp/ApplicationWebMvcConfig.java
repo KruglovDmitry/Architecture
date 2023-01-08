@@ -18,19 +18,19 @@ public class ApplicationWebMvcConfig extends WebMvcConfigurerAdapter{
         configurer.enable();
     }
     
-    //@Bean
-    //public InternalResourceViewResolver viewResolver() {
-    //    InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-    //    resolver.setPrefix("/WEB-INF/pages/");
-    //    resolver.setSuffix(".jsp");
-    //    return resolver;
-    //}
-
     @Bean
-    public ViewResolver xsltViewResolver() {
-        XsltViewResolver viewResolver = new XsltViewResolver();
-        viewResolver.setPrefix("/WEB-INF/xsl/");
-        viewResolver.setSuffix(".xslt");
-        return viewResolver;
+    public InternalResourceViewResolver viewResolver() {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setPrefix("/WEB-INF/pages/");
+        resolver.setSuffix(".jsp");
+        return resolver;
     }
+
+    //@Bean
+    //public ViewResolver xsltViewResolver() {
+    //    XsltViewResolver viewResolver = new XsltViewResolver();
+    //    viewResolver.setPrefix("/WEB-INF/xsl/");
+    //    viewResolver.setSuffix(".xslt");
+    //    return viewResolver;
+    //}
 }

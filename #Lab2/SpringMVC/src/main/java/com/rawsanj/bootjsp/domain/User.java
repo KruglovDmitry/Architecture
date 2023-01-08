@@ -3,7 +3,15 @@ package com.rawsanj.bootjsp.domain;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import javax.persistence.*;
 import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "users")
 @JacksonXmlRootElement(localName = "User")
@@ -29,9 +37,6 @@ public class User implements Serializable {
 
     @Column(name = "goldstatus")
     private Boolean Goldstatus;
-
-    public User() {
-    }
 
     public void setId(int id) {
         this.id = id;

@@ -29,3 +29,11 @@ INSERT INTO USERS VALUES
 (0, 35, TRUE, 'Ivan123', 'Ivan', 'Parol123','Petrov'),
 (1, 16, FALSE, 'ONIX', 'Fedor', 'Parol321', 'Ivanov'),
 (2, 25, FALSE, 'Yura1988', 'Uriy', 'NoName123', 'Lebedev')
+
+CREATE TABLE LOGS (
+    Id integer CONSTRAINT userskey PRIMARY KEY,
+    Kind varchar(40) NOT NULL,
+    Entity varchar(40) NOT NULL,
+    Description varchar(200) NOT NULL,
+    Time timestamp without time zone NULL
+)
