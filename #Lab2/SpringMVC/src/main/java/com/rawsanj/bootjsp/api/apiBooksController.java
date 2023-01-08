@@ -1,7 +1,6 @@
 package com.rawsanj.bootjsp.api;
 
 import com.rawsanj.bootjsp.domain.Book;
-import com.rawsanj.bootjsp.domain.Books;
 import com.rawsanj.bootjsp.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
