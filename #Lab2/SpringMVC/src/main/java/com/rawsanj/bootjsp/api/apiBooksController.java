@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.jms.JMSException;
 import java.util.List;
 
 @RestController
@@ -37,7 +38,7 @@ public class apiBooksController {
             method = RequestMethod.PUT,
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             consumes = MediaType.ALL_VALUE)
-    public void create(Book book) {
+    public void create(Book book) throws JMSException {
         bookService.add(book);
     }
 
@@ -46,7 +47,7 @@ public class apiBooksController {
             method = RequestMethod.POST,
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             consumes = MediaType.ALL_VALUE)
-    public void update(Book book) {
+    public void update(Book book) throws JMSException {
         bookService.update(book);
     }
 
@@ -55,7 +56,7 @@ public class apiBooksController {
             method = RequestMethod.DELETE,
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             consumes = MediaType.ALL_VALUE)
-    public void delete(@RequestParam int id) {
+    public void delete(@RequestParam int id) throws JMSException {
         bookService.delete(id);
     }
 }

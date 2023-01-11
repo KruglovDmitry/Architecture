@@ -1,6 +1,8 @@
 package com.rawsanj.bootjsp.services;
 
 import com.rawsanj.bootjsp.domain.Book;
+
+import javax.jms.JMSException;
 import java.util.List;
 
 public interface IBookService {
@@ -9,9 +11,9 @@ public interface IBookService {
 
     Book get(int id);
 
-    void add(Book book);
+    void add(Book book) throws JMSException;
 
-    void update (Book book);
+    void update (Book book) throws JMSException;
 
-    void delete(int id);
+    void delete(int id) throws JMSException;
 }

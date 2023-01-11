@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.jms.JMSException;
 import java.util.List;
 
 @Controller
@@ -42,7 +43,7 @@ public class BooksController {
     }
 
     @RequestMapping("/save")
-    public String saveBook(@ModelAttribute("book") Book book) {
+    public String saveBook(@ModelAttribute("book") Book book) throws JMSException {
         if (book.getId() == 0) {
             bookService.add(book);
         }
@@ -53,7 +54,7 @@ public class BooksController {
     }
 
     @RequestMapping("/delete")
-    public String deleteBook(@RequestParam int id) {
+    public String deleteBook(@RequestParam int id) throws JMSException {
         bookService.delete(id);
         return "redirect:/home/index";
     }
