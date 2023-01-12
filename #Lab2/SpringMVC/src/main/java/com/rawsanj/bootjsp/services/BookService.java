@@ -1,6 +1,7 @@
 package com.rawsanj.bootjsp.services;
 
 import com.rawsanj.bootjsp.domain.Book;
+import com.rawsanj.bootjsp.domain.JmsMessage;
 import com.rawsanj.bootjsp.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
@@ -21,8 +22,6 @@ public class BookService implements  IBookService{
 
     @Autowired
     JmsTemplate jmsTemplate;
-
-    private Queue queue;
 
     public BookService() {
     }
@@ -47,12 +46,8 @@ public class BookService implements  IBookService{
                 .createSession()
                 .createTopic("EmpTopic");
 
-        Map<String, Object> map = new HashMap<>();
-        map.put("title", book.getTitle());
-        map.put("author", book.getAuthor());
-        map.put("description", book.getDescription());
-        jmsTemplate.convertAndSend(topic, map);
-
+        JmsMessage<Book> msg = new JmsMessage<Book>("add", book);
+        jmsTemplate.convertAndSend(topic, msg);
         bookRepository.add(book);
     }
 
@@ -66,11 +61,8 @@ public class BookService implements  IBookService{
                 .createSession()
                 .createTopic("EmpTopic");
 
-        Map<String, Object> map = new HashMap<>();
-        map.put("title", book.getTitle());
-        map.put("author", book.getAuthor());
-        map.put("description", book.getDescription());
-        jmsTemplate.convertAndSend(topic, map);
+        JmsMessage<Book> msg = new JmsMessage<Book>("update", book);
+        jmsTemplate.convertAndSend(topic, msg);
 
         bookRepository.update(book);
     }
@@ -85,9 +77,9 @@ public class BookService implements  IBookService{
                 .createSession()
                 .createTopic("EmpTopic");
 
-        Map<String, Object> map = new HashMap<>();
-        map.put("id", id);
-        jmsTemplate.convertAndSend(topic, map);
+        Book book = bookRepository.get(id);
+        JmsMessage<Book> msg = new JmsMessage<Book>("delete", book);
+        jmsTemplate.convertAndSend(topic, msg);
 
         bookRepository.delete(id);
     }

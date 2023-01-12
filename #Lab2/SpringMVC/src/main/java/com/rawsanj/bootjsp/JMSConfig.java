@@ -27,6 +27,7 @@ public class JMSConfig {
         containerFactory.setSubscriptionDurable(true);
         return containerFactory;
     }
+
     @Bean
     public CachingConnectionFactory connectionFactory() {
         CachingConnectionFactory factory = new CachingConnectionFactory();
@@ -36,6 +37,7 @@ public class JMSConfig {
         factory.setClientId("client123");
         return factory;
     }
+
     @Bean
     public MessageConverter jacksonJmsMsgConverter() {
         MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
